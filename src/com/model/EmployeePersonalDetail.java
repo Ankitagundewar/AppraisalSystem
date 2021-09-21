@@ -6,11 +6,10 @@ public class EmployeePersonalDetail
 {
 	private int employeeid ;
 	private String employeeFirstName ;
-	private String employeeMiddleName ;
 	private String employeeLastName ;
 	private String employeeAddress ;
 	private int employeeAge ;
-	private Date employeeDOB ;
+	private String employeeDOB ;
 	public int getEmployeeid() {
 		return employeeid;
 	}
@@ -22,12 +21,6 @@ public class EmployeePersonalDetail
 	}
 	public void setEmployeeFirstName(String employeeFirstName) {
 		this.employeeFirstName = employeeFirstName;
-	}
-	public String getEmployeeMiddleName() {
-		return employeeMiddleName;
-	}
-	public void setEmployeeMiddleName(String employeeMiddleName) {
-		this.employeeMiddleName = employeeMiddleName;
 	}
 	public String getEmployeeLastName() {
 		return employeeLastName;
@@ -47,18 +40,18 @@ public class EmployeePersonalDetail
 	public void setEmployeeAge(int employeeAge) {
 		this.employeeAge = employeeAge;
 	}
-	public Date getEmployeeDOB() {
+	public String getEmployeeDOB() {
 		return employeeDOB;
 	}
-	public void setEmployeeDOB(Date employeeDOB) {
-		this.employeeDOB = employeeDOB;
+	public void setEmployeeDOB(String string) {
+		this.employeeDOB = string;
 	}
 	@Override
 	public String toString() {
 		return "EmployeePersonalDetail [employeeid=" + employeeid + ", employeeFirstName=" + employeeFirstName
-				+ ", employeeMiddleName=" + employeeMiddleName + ", employeeLastName=" + employeeLastName
-				+ ", employeeAddress=" + employeeAddress + ", employeeAge=" + employeeAge + ", employeeDOB="
-				+ employeeDOB + "]";
+				+ ", employeeLastName=" + employeeLastName + ", employeeAddress=" + employeeAddress + ", employeeAge="
+				+ employeeAge + ", employeeDOB=" + employeeDOB + "]";
 	}
+	
 	
 }

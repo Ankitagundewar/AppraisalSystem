@@ -6,6 +6,13 @@ public class Appraisal
 {
 	private int employeeid ;
 	private Date appraisalDate ;
+	private String oldRole;
+	public String getOldRole() {
+		return oldRole;
+	}
+	public void setOldRole(String oldRole) {
+		this.oldRole = oldRole;
+	}
 	private String newRole ;
 	private int noOfApprisal ;
 	private String appraisalFeedback ;
@@ -22,6 +29,7 @@ public class Appraisal
 	public void setAppraisalDate(Date appraisalDate) {
 		this.appraisalDate = appraisalDate;
 	}
+	
 	public String getNewRole() {
 		return newRole;
 	}
@@ -48,9 +56,10 @@ public class Appraisal
 	}
 	@Override
 	public String toString() {
-		return "Appraisal [employeeid=" + employeeid + ", appraisalDate=" + appraisalDate + ", newRole=" + newRole
-				+ ", noOfApprisal=" + noOfApprisal + ", appraisalFeedback=" + appraisalFeedback
+		return "Appraisal [employeeid=" + employeeid + ", appraisalDate=" + appraisalDate + ", oldRole=" + oldRole
+				+ ", newRole=" + newRole + ", noOfApprisal=" + noOfApprisal + ", appraisalFeedback=" + appraisalFeedback
 				+ ", employeePerformance=" + employeePerformance + "]";
 	}
+	
 	
 }

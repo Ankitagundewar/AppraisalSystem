@@ -6,10 +6,21 @@ public class Employee
 {
 	private int employeeid;
 	private int employeeSalary ;
-	private Date employeeDateOfJoining ;
+	private String employeeDateOfJoining ;
 	private String employeeCurrentRole ;
 	private String employeeEmail ;
 	private String employeeDepartment ;
+	
+	
+	/*
+	 * public Employee(int employeeid, int employeeSalary, String
+	 * employeeDateOfJoining, String employeeCurrentRole, String employeeEmail,
+	 * String employeeDepartment) { super(); this.employeeid = employeeid;
+	 * this.employeeSalary = employeeSalary; this.employeeDateOfJoining =
+	 * employeeDateOfJoining; this.employeeCurrentRole = employeeCurrentRole;
+	 * this.employeeEmail = employeeEmail; this.employeeDepartment =
+	 * employeeDepartment; }
+	 */
 	public int getEmployeeid() {
 		return employeeid;
 	}
@@ -22,10 +33,10 @@ public class Employee
 	public void setEmployeeSalary(int employeeSalary) {
 		this.employeeSalary = employeeSalary;
 	}
-	public Date getEmployeeDateOfJoining() {
+	public String getEmployeeDateOfJoining() {
 		return employeeDateOfJoining;
 	}
-	public void setEmployeeDateOfJoining(Date employeeDateOfJoining) {
+	public void setEmployeeDateOfJoining(String employeeDateOfJoining) {
 		this.employeeDateOfJoining = employeeDateOfJoining;
 	}
 	public String getEmployeeCurrentRole() {
