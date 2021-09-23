@@ -104,6 +104,7 @@ public class Client {
         			System.out.println("1.Insert Appraisal Detail");
                 	System.out.println("2.Display List of employees who joined as a intern and now are managers ");
                 	System.out.println("3.Employee with maximum appraisals ");
+                	System.out.println("4.Employees for who role was not changed after appraisal");
                 	System.out.println("----------------------------------------------------------------");
                 	System.out.println("\nEnter choice:");
                 	ch=sc.nextInt();  
@@ -112,7 +113,6 @@ public class Client {
                 		case 1:
                 		{
                 			EmployeeDao ed=new EmployeeDao();
-                			AppraisalDetails ap=new AppraisalDetails();
                 			System.out.println("Enter Appraisal Id :");
             				int id=sc.nextInt();
             				System.out.println("Enter Employee Id :");
@@ -127,15 +127,19 @@ public class Client {
                 		case 2:
                 		{
                 			EmployeeDao ed=new EmployeeDao();
-                			AppraisalDetails ap=new AppraisalDetails();
                 			ed.display();
                 			break;
                 		}
                 		case 3:
                 		{
                 			EmployeeDao ed=new EmployeeDao();
-                			AppraisalDetails ap=new AppraisalDetails();
                 			ed.displayEmpWithMaxAppraisal();
+                			break;
+                		}
+                		case 4:
+                		{
+                			EmployeeDao ed=new EmployeeDao();
+                			ed.displayRoleNotChnageAfterAppraisal();
                 			break;
                 		}
                 	}

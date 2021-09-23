@@ -112,7 +112,7 @@ public class EmployeeDao
 	}
 	public void  insertAppraisalDetail(int id,int empid,String str,String date)
 	 {                                         
-		//appraisalid,employeeid,appraisaldate,oldroleid,newroleid,performance
+		
 	 try(Statement st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);           
 	 ResultSet rs = st.executeQuery("Select * from employee");         
 	 Statement st1 = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);        
@@ -164,7 +164,7 @@ public class EmployeeDao
 		try(PreparedStatement pst = con.prepareStatement("update Employee set currentroleid=? where employeeid=?");)
 		{
 		pst.setInt(1, newrole);
-		pst.setInt(3, empid);
+		pst.setInt(2, empid);
 		r = pst.executeUpdate();
 		
 		System.out.println("current role id updated for empid: "+empid);
@@ -201,6 +201,25 @@ public class EmployeeDao
 		
 		try( Statement st = con.createStatement(); ResultSet rs = st.executeQuery("select * from employee where employeeid = (select empid from appraisaldetails group by empid order by count(*) desc limit 1);"
 				+ "");	)
+		{
+			while(rs.next())
+			{
+				System.out.println("employeeid : "+ rs.getString(1)+"\n"+"FirstName : "
+						+rs.getString(2)+"\n"+"lastname : "+ rs.getString(3) +"\n"+"joiningdate : "+ rs.getString(4) +"\n"+"salary : "
+									+ rs.getString(5) +"\n"+"Age : "+ rs.getString(6) +"\n"+"city : "+ rs.getString(7) +"\n"+"email : "
+						+ rs.getString(8) +"\n"+"currentroleid : "+ rs.getString(9) +"\n"+"deptpartment : "+ rs.getString(10));
+			}
+		}
+		catch(SQLException e)
+		{
+				System.out.println(e.getMessage());
+		}
+	}
+
+
+	public void displayRoleNotChnageAfterAppraisal()
+	{
+		try( Statement st = con.createStatement(); ResultSet rs = st.executeQuery("select * from employee where employeeid=( select empid from appraisaldetails where newroleid=oldroleid);");)
 		{
 			while(rs.next())
 			{
