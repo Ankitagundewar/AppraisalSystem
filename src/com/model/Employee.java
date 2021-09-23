@@ -1,67 +1,83 @@
 package com.model;
 
-import java.util.Date;
-
 public class Employee 
 {
 	private int employeeid;
-	private int employeeSalary ;
-	private String employeeDateOfJoining ;
-	private String employeeCurrentRole ;
-	private String employeeEmail ;
-	private String employeeDepartment ;
-	
-	
-	/*
-	 * public Employee(int employeeid, int employeeSalary, String
-	 * employeeDateOfJoining, String employeeCurrentRole, String employeeEmail,
-	 * String employeeDepartment) { super(); this.employeeid = employeeid;
-	 * this.employeeSalary = employeeSalary; this.employeeDateOfJoining =
-	 * employeeDateOfJoining; this.employeeCurrentRole = employeeCurrentRole;
-	 * this.employeeEmail = employeeEmail; this.employeeDepartment =
-	 * employeeDepartment; }
-	 */
+	private String firstname;
+	private String lastname;
+	private String joiningdate ;
+	private int salary ;
+	private int age;
+	private String city;
+	private String emailid ;
+	private int currentroleid;
+	private String department ;
 	public int getEmployeeid() {
 		return employeeid;
 	}
 	public void setEmployeeid(int employeeid) {
 		this.employeeid = employeeid;
 	}
-	public int getEmployeeSalary() {
-		return employeeSalary;
+	public String getFirstname() {
+		return firstname;
 	}
-	public void setEmployeeSalary(int employeeSalary) {
-		this.employeeSalary = employeeSalary;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
-	public String getEmployeeDateOfJoining() {
-		return employeeDateOfJoining;
+	public String getLastname() {
+		return lastname;
 	}
-	public void setEmployeeDateOfJoining(String employeeDateOfJoining) {
-		this.employeeDateOfJoining = employeeDateOfJoining;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
-	public String getEmployeeCurrentRole() {
-		return employeeCurrentRole;
+	public String getJoiningdate() {
+		return joiningdate;
 	}
-	public void setEmployeeCurrentRole(String employeeCurrentRole) {
-		this.employeeCurrentRole = employeeCurrentRole;
+	public void setJoiningdate(String joiningdate) {
+		this.joiningdate = joiningdate;
 	}
-	public String getEmployeeEmail() {
-		return employeeEmail;
+	public int getSalary() {
+		return salary;
 	}
-	public void setEmployeeEmail(String employeeEmail) {
-		this.employeeEmail = employeeEmail;
+	public void setSalary(int salary) {
+		this.salary = salary;
 	}
-	public String getEmployeeDepartment() {
-		return employeeDepartment;
+	public int getAge() {
+		return age;
 	}
-	public void setEmployeeDepartment(String employeeDepartment) {
-		this.employeeDepartment = employeeDepartment;
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getEmailid() {
+		return emailid;
+	}
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
+	}
+	public int getCurrentroleid() {
+		return currentroleid;
+	}
+	public void setCurrentroleid(int currentroleid) {
+		this.currentroleid = currentroleid;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 	@Override
 	public String toString() {
-		return "Employee [employeeid=" + employeeid + ", employeeSalary=" + employeeSalary + ", employeeDateOfJoining="
-				+ employeeDateOfJoining + ", employeeCurrentRole=" + employeeCurrentRole + ", employeeEmail="
-				+ employeeEmail + ", employeeDepartment=" + employeeDepartment + "]";
+		return "Employee [employeeid=" + employeeid + ", firstname=" + firstname + ", lastname=" + lastname
+				+ ", joiningdate=" + joiningdate + ", salary=" + salary + ", age=" + age + ", city=" + city
+				+ ", emailid=" + emailid + ", currentroleid=" + currentroleid + ", department=" + department + "]";
 	}
 	
-}
+	
+}	
