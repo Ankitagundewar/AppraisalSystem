@@ -89,10 +89,10 @@ public class Client {
         	        			int eid=sc.nextInt();
         	        			System.out.println("Enter salary to update record of "+eid+" :");
         	        			int sal=sc.nextInt();
-        	        			System.out.println("Enter role to update record of "+eid+" :");
+        	        			System.out.println("Enter role id to update record of "+eid+" :");
         	        			
         	        			System.out.println("1.Intern 2.junior associate 3.senior associate 4.assistant manager 5.manager 6.senior manager");
-                				if(empd.updateEmployee( sal,sc.next(),eid)>0)
+                				if(empd.updateEmployee( sal,sc.nextInt(),eid)>0)
                 					System.out.println("record updated successfully");
         	        			break;
         	        		}
@@ -105,6 +105,7 @@ public class Client {
                 	System.out.println("2.Display List of employees who joined as a intern and now are managers ");
                 	System.out.println("3.Employee with maximum appraisals ");
                 	System.out.println("4.Employees for who role was not changed after appraisal");
+                	System.out.println("5.Employees who did not have appraisal\r\n");
                 	System.out.println("----------------------------------------------------------------");
                 	System.out.println("\nEnter choice:");
                 	ch=sc.nextInt();  
@@ -140,6 +141,12 @@ public class Client {
                 		{
                 			EmployeeDao ed=new EmployeeDao();
                 			ed.displayRoleNotChnageAfterAppraisal();
+                			break;
+                		}
+                		case 5:
+                		{
+                			EmployeeDao ed=new EmployeeDao();
+                			ed.displayEmployeeDidNotHaveAppraisal();
                 			break;
                 		}
                 	}

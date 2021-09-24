@@ -92,13 +92,13 @@ public class EmployeeDao
 		}
 	return r;
 	}
-	public int updateEmployee(int sal,String role,int id) throws SQLException 
+	public int updateEmployee(int sal,int role,int id) throws SQLException 
 	{
 		int r=0;
 		try(PreparedStatement pst = con.prepareStatement("update Employee set salary = ? ,currentroleid=? where employeeid=?");)
 		{
 		pst.setInt(1, sal);
-		pst.setString(2, role);
+		pst.setInt(2, role);
 		pst.setInt(3, id);
 		r = pst.executeUpdate();
 		
@@ -219,14 +219,37 @@ public class EmployeeDao
 
 	public void displayRoleNotChnageAfterAppraisal()
 	{
-		try( Statement st = con.createStatement(); ResultSet rs = st.executeQuery("select * from employee where employeeid=( select empid from appraisaldetails where newroleid=oldroleid);");)
+		try( Statement st = con.createStatement(); ResultSet rs = st.executeQuery("select e.employeeid,e.firstname ,e.lastname from employee e inner join appraisaldetails a on e.employeeid=a.empid where oldroleid=newroleid;");)
+		{
+			/*
+			 * +"\n"+"joiningdate : "+ rs.getString(4) +"\n"+"salary : " + rs.getString(5)
+			 * +"\n"+"Age : "+ rs.getString(6) +"\n"+"city : "+ rs.getString(7)
+			 * +"\n"+"email : " + rs.getString(8) +"\n"+"currentroleid : "+ rs.getString(9)
+			 * +"\n"+"deptpartment : "+ rs.getString(10)
+			 */
+			while(rs.next())
+			{
+				System.out.println("employeeid : "+ rs.getString(1)+"\n"+"FirstName : "
+						+rs.getString(2)+"\n"+"lastname : "+ rs.getString(3));
+				System.out.println("-------------------------------------------------------");
+			}
+		}
+		catch(SQLException e)
+		{
+				System.out.println(e.getMessage());
+		}
+	}
+
+
+	public void displayEmployeeDidNotHaveAppraisal() 
+	{
+		try( Statement st = con.createStatement(); ResultSet rs = st.executeQuery("select employeeid,firstname,lastname from employee a left join appraisaldetails b on a.employeeid=b.empid where isnull(b.empid);");)
 		{
 			while(rs.next())
 			{
 				System.out.println("employeeid : "+ rs.getString(1)+"\n"+"FirstName : "
-						+rs.getString(2)+"\n"+"lastname : "+ rs.getString(3) +"\n"+"joiningdate : "+ rs.getString(4) +"\n"+"salary : "
-									+ rs.getString(5) +"\n"+"Age : "+ rs.getString(6) +"\n"+"city : "+ rs.getString(7) +"\n"+"email : "
-						+ rs.getString(8) +"\n"+"currentroleid : "+ rs.getString(9) +"\n"+"deptpartment : "+ rs.getString(10));
+						+rs.getString(2)+"\n"+"lastname : "+ rs.getString(3));
+				System.out.println("-------------------------------------------------------");
 			}
 		}
 		catch(SQLException e)
